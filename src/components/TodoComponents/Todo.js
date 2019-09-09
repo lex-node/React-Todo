@@ -7,7 +7,6 @@ class ToDo extends React.Component {
         this.state = {
             checked: false
         }
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
 
