@@ -1,15 +1,15 @@
-/*- `<Todo />` is a component that takes in the `todo` data and displays the task to the screen.*/
 import React from 'react';
+
+/* takes in the to-do data and displays the task to the screen.*/
 
 const ToDo = props => {
     return (
         <div>
-            {props.toDoData.map(task => (
+            {
                 <div>
-                    <h2>{task.task}</h2>
-                    <p>This task has id {task.id} and {task.completed ? " HAS been" : " has NOT been"} completed</p>
+                    <h2>{props.task.task}</h2>
+                    <p>This task has id {props.task.id} and {props.task.completed ? " HAS been" : " has NOT been"} completed</p>
                 </div>
-            ))
         }
         </div>
     );
