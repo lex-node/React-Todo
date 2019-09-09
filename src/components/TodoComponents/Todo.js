@@ -1,8 +1,7 @@
+/* takes in the to-do data and displays the task to the screen.*/
 import React from 'react';
 
-/* takes in the to-do data and displays the task to the screen.*/
-
-class ToDo extends React.Component  {
+class ToDo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,20 +11,18 @@ class ToDo extends React.Component  {
     }
 
 
-
     handleSubmit = (e) => {
         this.props.markCompleted(e, this.props.task.task);
     }
 
-    render()
-    {
+    render() {
         return (
             <div>
                 <h2>{this.props.task.task}</h2>
                 <p>This task has
                     id {this.props.task.id} and {this.props.task.completed ? " HAS been" : " has NOT been"} completed</p>
                 <form onSubmit={this.handleSubmit}>
-                <input type="submit" value="Completed?"/>
+                    <input type="submit" value="Completed?"/>
                 </form>
             </div>
         )

@@ -1,7 +1,7 @@
 /*
 TodoForm  holds input field and buttons for adding to-dos and clearing completed to-dos
-Your input field should take in user input, and allow a user to press `Enter` or click on the `Submit Button` to add a to-do to your list
-Once a to-do is submitted, the To-do List should re-render and show the added to-do.
+input field takes in user input, and allows a user to add a to-do to list
+Once a to-do is submitted, the To-do List re-renders and show sthe added to-do.
 */
 
 import React from 'react';

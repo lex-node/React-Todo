@@ -2,11 +2,11 @@ import React from 'react';
 import ToDoList from './components/TodoComponents/TodoList';
 import ToDoForm from './components/TodoComponents/TodoForm';
 
-  // you will need a place to store your state in this component.
-    // design `App` to be the parent component of your application.
-    // this component is going to take care of state, and any change handlers you need to work with your state
+// you will need a place to store your state in this component.
+// design `App` to be the parent component of your application.
+// this component is going to take care of state, and any change handlers you need to work with your state
 
-    let toDoData = [
+let toDoData = [
     {
         task: 'Organize Existence',
         id: 1528817077286,
@@ -73,22 +73,21 @@ class App extends React.Component {
         this.setState({
             taskList: this.state.taskList.filter(task => !task.completed)
         })
-}
+    }
 
-markCompleted = (e, completedTask) => {
+    markCompleted = (e, completedTask) => {
         console.log("markcompleted has fired");
         e.preventDefault();
         this.setState({
                 taskList: this.state.taskList.map(task => {
-                    if(task.task === completedTask) {
+                    if (task.task === completedTask) {
                         return {...task, completed: !task.completed};
                     }
                     return task;
                 })
             }
-
         )
-}
+    }
 
     render() {
         return (
