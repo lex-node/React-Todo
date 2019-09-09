@@ -54,6 +54,8 @@ class App extends React.Component {
         super();
         this.state = {taskList: toDoData};
         this.handleTaskSubmission = this.handleTaskSubmission.bind(this);
+        this.clearCompleted = this.clearCompleted.bind(this);
+        this.markCompleted = this.markCompleted.bind(this);
     }
 
     handleTaskSubmission = (e, task) => {
@@ -63,12 +65,30 @@ class App extends React.Component {
             id: Date.now(),
             completed: false
         };
-
-        console.log("handle task submission ran");
-        alert([...this.state.taskList, newTask])
         this.setState({taskList: [...this.state.taskList, newTask]});
     }
 
+    clearCompleted = (e, task) => {
+        e.preventDefault();
+        this.setState({
+            taskList: this.state.taskList.filter(task => !task.completed)
+        })
+}
+
+markCompleted = (e, completedTask) => {
+        console.log("markcompleted has fired");
+        e.preventDefault();
+        this.setState({
+                taskList: this.state.taskList.map(task => {
+                    if(task.task === completedTask) {
+                        return {...task, completed: !task.completed};
+                    }
+                    return task;
+                })
+            }
+
+        )
+}
 
     render() {
         return (
@@ -77,6 +97,8 @@ class App extends React.Component {
                 <ToDoForm handleTaskSubmission={this.handleTaskSubmission}/>
                 <ToDoList
                     taskList={this.state.taskList}
+                    clearCompleted={this.clearCompleted}
+                    markCompleted={this.markCompleted}
                 />
             </div>
         );
