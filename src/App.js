@@ -70,9 +70,7 @@ class App extends React.Component {
 
     clearCompleted = (e, task) => {
         e.preventDefault();
-        this.setState({
-            taskList: this.state.taskList.filter(task => !task.completed)
-        })
+        this.setState({taskList: this.state.taskList.filter(task => !task.completed)});
     }
 
     markCompleted = (e, completedTask) => {
